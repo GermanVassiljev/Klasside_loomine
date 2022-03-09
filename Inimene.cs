@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,23 +6,30 @@ using System.Threading.Tasks;
 
 namespace Klasside_loomine
 {
-    class Inimene
+    public abstract class Inimene
     {
-        string perenimi;
+        public string perenimi;
+        public string eesnimi;
         string staatus;
         int vanus;
         int palk;
         public int Pikkus;
         public int Kaal;
         public Inimene() { }
-        public Inimene(string Perenimi)
+        public Inimene(string Perenimi, string Eesnimi)
         {
             perenimi = Perenimi;
+            eesnimi = Eesnimi;
         }
         public string Perenimi
         {
             set { if (perenimi == null) perenimi = value; }
             get { return perenimi; }
+        }
+        public string Eesnimi
+        {
+            set { if (eesnimi == null) eesnimi = value; }
+            get { return eesnimi; }
         }
         public int Palk
         {
@@ -78,5 +85,6 @@ namespace Klasside_loomine
             Console.WriteLine("Tere! Minu perenimi on "+ perenimi);
             Console.WriteLine("Ma olen {0} aastat vana, olen {1}", vanus, staatus);
         }
+        public abstract void Kes_ma_olen();
     }
 }
